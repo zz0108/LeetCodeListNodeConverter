@@ -17,10 +17,12 @@ namespace LeetCodeListNodeConverter
             {
                 while (enumerator.MoveNext())
                 {
-                    ListNode<TSource> curr = new ListNode<TSource>();
-                    curr.val = enumerator.Current;
-                    next.next = curr;
-                    next = curr;
+                    var current = new ListNode<TSource>
+                    {
+                        val = enumerator.Current
+                    };
+                    next.next = current;
+                    next = current;
                 }
             }
             head = head.next;
