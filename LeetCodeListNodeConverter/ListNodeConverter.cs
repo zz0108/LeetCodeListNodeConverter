@@ -13,13 +13,15 @@ namespace LeetCodeListNodeConverter
         {
             ListNode<TSource> next = new ListNode<TSource>();
             ListNode<TSource> head = next;
-            var enumerator = sources.GetEnumerator();
-            while (enumerator.MoveNext())
+            using (var enumerator = sources.GetEnumerator())
             {
-                ListNode<TSource> curr = new ListNode<TSource>();
-                curr.val = enumerator.Current;
-                next.next = curr;
-                next = curr;
+                while (enumerator.MoveNext())
+                {
+                    ListNode<TSource> curr = new ListNode<TSource>();
+                    curr.val = enumerator.Current;
+                    next.next = curr;
+                    next = curr;
+                }
             }
             head = head.next;
             return head;
