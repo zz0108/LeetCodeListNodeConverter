@@ -8,6 +8,16 @@ namespace LeetCodeListNodeConverter
 {
     public class ListNode<T>
     {
+        public ListNode()
+        {
+            
+        }
+        public ListNode(T val, ListNode<T> next)
+        {
+            this.val = val;
+            this.next = next;
+        }
+
         public T val { get; set; }
         public ListNode<T> next { get; set; }
     }

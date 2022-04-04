@@ -11,8 +11,8 @@ namespace LeetCodeListNodeConverter
     {
         public static ListNode<TSource> ConverterToListNode<TSource>(this IEnumerable<TSource> sources)
         {
-            ListNode<TSource> next = new ListNode<TSource>();
-            ListNode<TSource> head = next;
+            var next = new ListNode<TSource>();
+            var head = next;
             using (var enumerator = sources.GetEnumerator())
             {
                 while (enumerator.MoveNext())
