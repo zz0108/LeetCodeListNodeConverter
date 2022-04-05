@@ -1,27 +1,28 @@
-﻿namespace LeetCodeListNodeConverter;
+﻿using System.Text;
+
+namespace LeetCodeListNodeConverter;
 
 public static class MultiplySolution
 {
     private static readonly List<string> MulList = new List<string>();
-    private static int _carry = 0;
+    private static int _carry;
     public static string Multiply(string num1, string num2)
     {
         var count = 0;
         for (var i = num1.Length-1; i >= 0; i--)
         {
-            var mul = string.Empty;
+            var mul = new StringBuilder();
             for (var j = num2.Length-1; j >= 0; j--)
-                mul += Mul(num2[j],num1[i]);
+                mul.Append(Mul(num2[j],num1[i]));
             
             if (_carry != 0)
             {
-                mul += _carry.ToString();
+                mul.Append(_carry.ToString());
                 _carry = 0;
             }
-            var arr = mul.Reverse().ToArray();
-            var len = arr.Length;
-            var tmp = new String(arr).PadRight(len+count,'0');
-            MulList.Add(tmp);
+            var res = mul.Reverse();
+            var len = res.Length;
+            MulList.Add(res.PadRight(len+count,'0'));
             count++;
         }
         var fir = MulList[0];

@@ -14,8 +14,8 @@ using LeetCodeListNodeConverter;
 // var nums2 = new int?[] { 1,null,3,2 };
 // var tree1 = nums2.ConverterToTreeNode();
 
-var num1 = "123456555";
-var num2 = "123456789";
+var num1 = "20";
+var num2 = "30";
 
 var a = SubSolution.SubStrings(num1, num2);
 Console.WriteLine(a);

@@ -1,4 +1,6 @@
-﻿namespace LeetCodeListNodeConverter;
+﻿using System.Text;
+
+namespace LeetCodeListNodeConverter;
 
 public static class AddSolution
 {
@@ -7,20 +9,19 @@ public static class AddSolution
     {
         var num1Right = num1.Length-1;
         var num2Right = num2.Length-1;
-        var ret = string.Empty;
+        var ret = new StringBuilder();
         while (num1Right >= 0 || num2Right >= 0)
         {
             var first = num1Right < 0 ? '0' : num1[num1Right];
             var second = num2Right < 0 ? '0' : num2[num2Right];
-            ret += Add(first, second);
+            ret.Append(Add(first, second));
             num1Right--;
             num2Right--;
         }
 
         if(_carry != 0)
-            ret += _carry;
-        var tmp = ret.Reverse().ToArray();
-        return new String(tmp);
+            ret.Append(_carry);
+        return ret.Reverse();
     }
 
     private static string Add(char num1, char num2)
