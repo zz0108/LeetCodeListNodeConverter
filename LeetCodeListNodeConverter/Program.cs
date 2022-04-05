@@ -16,7 +16,8 @@ using LeetCodeListNodeConverter;
 
 var num1 = "20";
 var num2 = "30";
-
+var ss = "1234s5a6c4sa";
+var mpt = ss.ToStringBuilder();
 var a = SubSolution.SubStrings(num1, num2);
 Console.WriteLine(a);
 

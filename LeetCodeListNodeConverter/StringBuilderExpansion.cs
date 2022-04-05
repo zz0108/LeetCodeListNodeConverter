@@ -11,4 +11,15 @@ public static class StringBuilderExpansion
             tmp.Append(source[i]);
         return tmp.ToString();
     }
+
+    public static StringBuilder ToStringBuilder<T>(this IEnumerable<T> source)
+    {
+        StringBuilder res = new StringBuilder();
+        using var enumerator = source.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+            res.Append(enumerator.Current);
+        }
+        return res;
+    }
 }
