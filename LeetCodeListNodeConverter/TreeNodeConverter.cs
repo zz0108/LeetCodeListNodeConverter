@@ -29,7 +29,7 @@ namespace LeetCodeListNodeConverter
                     }
                     isLeft = false;
                 }
-                else 
+                else
                 {
                     if(array[i] != null)
                     {
@@ -38,7 +38,7 @@ namespace LeetCodeListNodeConverter
                             val = array[i]
                         };
                         node!.right = tmp;
-                         queue.Enqueue(node.right);
+                        queue.Enqueue(node.right);
                     }
                     queue.Dequeue();
                     isLeft = true;
